@@ -1,6 +1,8 @@
 main section.products-index,
 main section.categories-show {
 
+
+
   .products {
     display:         flex;
     flex-direction:  row;
@@ -8,6 +10,17 @@ main section.categories-show {
     justify-content: space-around;
 
     .product {
+
+      .sold-out {
+        position: absolute;
+        background-color: rgb(241, 174, 165);
+        color: azure;
+        top: -20px;
+        left: -0.5px;
+        padding: 15px;
+        border-radius: 5px 0px 20px 0px;
+      }
+
       // flex:      1;
       max-width: 260px;
       // so that footer within can be positioned absolutely
