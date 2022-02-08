@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+  describe 'Validations' do
   it 'should have a name' do
     @category = Category.new({ id: 1, name: 'TestCat', created_at: Date.new, updated_at: Date.new })
     @product = Product.new({ category_id: 1, name: 'NewThing'})
@@ -19,5 +20,16 @@ RSpec.describe Product, type: :model do
     expect(@category.created_at).to be_present
     expect(@product.quantity).to be_present
   end
-  
+  it 'should have a category id' do
+    @category = Category.new({ id: 1, name: 'TestCat', created_at: Date.new, updated_at: Date.new })
+    @product = Product.new({ category_id: 1, name: 'NewThing'})
+    expect(@category.updated_at).to be_present
+    expect(@product.category_id).to be_present
+  end
+  it 'should throw an error when a category property is nil' do
+    @category = Category.new({ id: 1, name: 'TestCat', created_at: Date.new, updated_at: Date.new })
+    @product = Product.new({ category_id: 1, name: 'NewThing', quantity: 1, price: 50})
+    expect{ expect(@product.name).to be_nil }.to raise_error(RSpec::Expectations::ExpectationNotMetError)
+  end
+end
 end
