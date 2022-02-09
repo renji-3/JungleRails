@@ -69,3 +69,10 @@ group :test do
   gem 'poltergeist'
   gem 'database_cleaner'
 end
+
+gem 'capybara'
+gem 'poltergeist'
+
+group :test do
+  gem 'database_cleaner-active_record'
+end
